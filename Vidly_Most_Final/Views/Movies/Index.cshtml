@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Vidly_Most_Final.Models.Movies>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Movies</h2>
+<button type="submit" class="btn btn-primary">New Movie</button>
+<br />
+<br />
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Movies</th>
+            <th>Genre</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(item.Name, "Edit", "Movies", new { id = item.Id }, null)
+                </td>
+                <td>
+                    @item.Genre.Name
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+
